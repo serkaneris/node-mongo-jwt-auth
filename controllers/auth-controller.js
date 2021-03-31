@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const {secretKey} = require('../config.json')
 
 exports.register = async(req,res,next)=>{
     try{
@@ -42,7 +43,7 @@ exports.login = async(req,res,next) => {
             username:user.username,
             userId:user._id.toString()
         },
-        'writeyoursupersecretkey',
+        secretKey,
         {expiresIn:'1h'})
 
         res.status(200).json({
@@ -53,4 +54,12 @@ exports.login = async(req,res,next) => {
     }catch(err){
         next(err)
     }
+}
+
+//this function add for testing jwt 
+exports.getData = async(req,res,next) =>{
+    res.status(200).json({
+        message:'token valid, You have successfully access.',
+        userId:req.userId
+    })
 }

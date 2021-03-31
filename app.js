@@ -2,8 +2,9 @@ const express= require('express')
 const path = require('path')
 const authRoutes = require('./routes/auth-routes')
 const mongoose = require('mongoose')
+const {mongodbConnString} = require('./config.json')
 
-const mongodbConnString = 'your mongodb connection string'
+
 const app = express()
 app.use(express.json());
 app.use('/',express.static(path.join(__dirname ,'static')))

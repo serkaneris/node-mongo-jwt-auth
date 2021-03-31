@@ -1,0 +1,4 @@
+{
+    "secretKey": "yoursupersecretkey",
+    "mongodbConnString":"Write your mongoDb connection string here"
+}
