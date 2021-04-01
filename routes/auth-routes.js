@@ -1,6 +1,6 @@
 const express = require('express')
 const authController = require('../controllers/auth-controller')
-const jwtVerification = require('../helpers/jwt-verification')
+const jwtVerification = require('../middlewares/jwt-verification')
 
 const router = express.Router()
 
